@@ -230,11 +230,11 @@ class GarminHAWidgetView extends WatchUi.View {
     }
 }
 
-class GarminHAWidgetDelegate extends WatchUi.BehaviorDelegate {
+class GarminHAWidgetDelegate extends WatchUi.InputDelegate {
     private var _view as GarminHAWidgetView;
 
     function initialize(view as GarminHAWidgetView) {
-        BehaviorDelegate.initialize();
+        InputDelegate.initialize();
         _view = view;
     }
 
@@ -267,13 +267,12 @@ class GarminHAWidgetDelegate extends WatchUi.BehaviorDelegate {
                     return true;
                 }
                 break;
-            // These only work in InputDelegate, not BehaviorDelegate
-            // case WatchUi.KEY_LIGHT:
-            //     keyString = "LIGHT";
-            //     break;
-            // case WatchUi.KEY_MENU:
-            //     keyString = "MENU";
-            //     break;
+            case WatchUi.KEY_LIGHT:
+                keyString = "LIGHT";
+                break;
+            case WatchUi.KEY_MENU:
+                keyString = "MENU";
+                break;
             default:
                 return false;
         }
