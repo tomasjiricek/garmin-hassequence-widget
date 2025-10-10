@@ -238,15 +238,7 @@ class GarminHAWidgetDelegate extends WatchUi.InputDelegate {
         _view = view;
     }
 
-    function onKeyPressed(keyEvent as WatchUi.KeyEvent) as Lang.Boolean {
-        return handleKeyEvent(keyEvent);
-    }
-
     function onKey(keyEvent as WatchUi.KeyEvent) as Lang.Boolean {
-        return handleKeyEvent(keyEvent);
-    }
-
-    private function handleKeyEvent(keyEvent as WatchUi.KeyEvent) as Lang.Boolean {
         var key = keyEvent.getKey();
         var keyString = "";
 
@@ -275,9 +267,12 @@ class GarminHAWidgetDelegate extends WatchUi.InputDelegate {
                     return true;
                 }
                 break;
-            case WatchUi.KEY_LIGHT:
-                keyString = "LIGHT";
-                break;
+
+            // Not working in widgets
+            // case WatchUi.KEY_LIGHT:
+            //     keyString = "LIGHT";
+            //     break;
+
             case WatchUi.KEY_MENU:
                 return onMenu();
             default:
